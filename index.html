@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Innovation Garage</title>
+  <script src="p5/p5.js"></script> <!-- Reference the local p5.js library -->
+
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+    <script>
+      let phrase = "Innovation Garage";
+      let waveOffset = 0;
+  
+      function setup() {
+        createCanvas(windowWidth, windowHeight);
+        textAlign(CENTER, CENTER);
+        textSize(50);
+      }
+  
+      function draw() {
+        background(0);
+        fill(255);
+  
+        for (let i = 0; i < phrase.length; i++) {
+          let letter = phrase[i];
+          let x = map(i, 0, phrase.length - 1, 50, width - 50);
+          let y = height / 2 + sin(waveOffset + i * 0.2 + mouseX * 0.01) * 50;
+  
+          text(letter, x, y);
+        }
+  
+        waveOffset += 0.1;
+      }
+  
+      function windowResized() {
+        resizeCanvas(windowWidth, windowHeight);
+      }
+    </script>
+  </body>
+</html>
