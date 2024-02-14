@@ -1,2 +1,0 @@
-# innovationgarage.no
-Main website
